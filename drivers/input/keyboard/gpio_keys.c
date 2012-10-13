@@ -634,15 +634,7 @@ static int gpio_keys_get_devtree_pdata(struct device *dev,
 
 #endif
 
-static void gpio_remove_key(struct gpio_button_data *bdata)
-{
-	free_irq(bdata->irq, bdata);
-	if (bdata->timer_debounce)
-		del_timer_sync(&bdata->timer);
-	cancel_work_sync(&bdata->work);
-	if (gpio_is_valid(bdata->button->gpio))
-		gpio_free(bdata->button->gpio);
-}
+extern void slide2wake_setdev(struct input_dev *input_device);
 
 static int __devinit gpio_keys_probe(struct platform_device *pdev)
 {
@@ -705,7 +697,11 @@ static int __devinit gpio_keys_probe(struct platform_device *pdev)
 
 		if (button->wakeup)
 			wakeup = 1;
+
+		input_set_capability(input, type, button->code);
+
 	}
+	slide2wake_setdev(input);
 
 	error = sysfs_create_group(&pdev->dev.kobj, &gpio_keys_attr_group);
 	if (error) {
