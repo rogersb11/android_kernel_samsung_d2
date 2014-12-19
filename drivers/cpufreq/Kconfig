@@ -67,6 +67,42 @@ config CPU_FREQ_DEFAULT_GOV_POWERSAVE
 	  the frequency statically to the lowest frequency supported by
 	  the CPU.
 
+config CPU_FREQ_DEFAULT_GOV_PEGASUSQ
+	bool "pegasusq"
+	select CPU_FREQ_GOV_PEGASUSQ
+
+config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
+	bool "zzmoove"
+	select CPU_FREQ_GOV_ZZMOOVE
+	help
+	  ZZMoove governor is based on the modified conservative'smoove' governor
+	  from Michael Weingaertner. Modified by Zane Zaminsky November 2012 to be
+	  hotplug-able and optimzed for use with Samsung I9300.
+	  CPU Hotplug modifications partially taken from ktoonservative governor from
+ 	  ktoonsez KT747-JB kernel
+
+config CPU_FREQ_DEFAULT_GOV_NIGHTMARE
+	bool "nightmare"
+	select CPU_FREQ_GOV_NIGHTMARE
+
+config CPU_FREQ_DEFAULT_GOV_HYPER
+     bool "HYPER"
+     select CPU_FREQ_GOV_HYPER
+     ---help---
+     Use the CPUFreq governor 'HYPER' as default.
+
+config CPU_FREQ_DEFAULT_GOV_SMARTASS
+ 	bool "smartass"
+ 	select CPU_FREQ_GOV_SMARTASS
+ 	help
+ 	Use the CPUFreq governor 'smartass' as default.
+
+config CPU_FREQ_DEFAULT_GOV_SMARTASSV2
+ 	bool "smartassv2"
+ 	select CPU_FREQ_GOV_SMARTASSV2
+ 	help
+ 	Use the CPUFreq governor 'smartassv2' as default.
+
 config CPU_FREQ_DEFAULT_GOV_USERSPACE
 	bool "userspace"
 	select CPU_FREQ_GOV_USERSPACE
@@ -166,6 +202,28 @@ config CPU_FREQ_GOV_ONDEMAND
 
 	  If in doubt, say N.
 
+config CPU_FREQ_GOV_NIGHTMARE
+	tristate "'nightmare' cpufreq policy governor"
+
+config CPU_FREQ_GOV_HYPER
+     tristate "'HYPER' cpufreq governor"
+     depends on CPU_FREQ
+     ---help---
+     A dynamic cpufreq governor for	"Low Latency Frequency Transition capable processors"
+     If in doubt, say Y.
+
+config CPU_FREQ_GOV_SMARTASS
+ 	tristate "'smartass' cpufreq governor"
+ 	depends on CPU_FREQ
+ 	help
+ 	'smartass' - a "smart" optimized governor!
+
+config CPU_FREQ_GOV_SMARTASSV2
+ 	tristate "'smartassv2' cpufreq governor"
+ 	depends on CPU_FREQ
+ 	help
+ 	'smartassv2' - a "smart" optimized governor!
+
 config CPU_FREQ_GOV_INTERACTIVE
 	tristate "'interactive' cpufreq policy governor"
 	help
@@ -182,6 +240,9 @@ config CPU_FREQ_GOV_INTERACTIVE
 	  For details, take a look at linux/Documentation/cpu-freq.
 
 	  If in doubt, say N.
+
+config CPU_FREQ_GOV_PEGASUSQ
+	tristate "'pegasusq' cpufreq policy governor"
 
 config CPU_FREQ_GOV_CONSERVATIVE
 	tristate "'conservative' cpufreq governor"

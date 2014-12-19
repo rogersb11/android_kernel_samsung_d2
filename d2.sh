@@ -4,7 +4,7 @@ TOOLCHAIN="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-"
 STRIP="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-strip"
 OUTDIR="/home/brett/D2/out"
 BUILD="build"
-CONFIG="cyanogen_d2_defconfig"
+CONFIG="shift_defconfig"
 KERNEL_DIR="/home/brett/D2"
 CURRENTDATE=$(date +"%m-%d")
 
