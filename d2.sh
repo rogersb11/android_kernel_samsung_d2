@@ -1,11 +1,11 @@
 #!/bin/bash
 
-TOOLCHAIN="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-"
-STRIP="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-strip"
-OUTDIR="/home/brett/android_kernel_samsung_d2/out"
+TOOLCHAIN="/home/rogersb11/Desktop/toolchains/Linaro-a9-4.9.3/bin/arm-cortex_a9-linux-gnueabihf-"
+STRIP="/home/rogersb11/Desktop/toolchains/Linaro-a9-4.9.3/bin/arm-cortex_a9-linux-gnueabihf-strip"
+OUTDIR="/home/rogersb11/D2/out"
 BUILD="build"
 CONFIG="cyanogen_d2_defconfig"
-KERNEL_DIR="/home/brett/android_kernel_samsung_d2"
+KERNEL_DIR="/home/rogersb11/D2"
 CURRENTDATE=$(date +"%m-%d")
 
 
